@@ -5,6 +5,8 @@ import { TezosToolkit } from "@taquito/taquito";
 import { bytes2Char } from '@taquito/utils';
 
 
+import { Player } from '@lottiefiles/react-lottie-player';
+
 import config from "./../config";
 
 
@@ -162,9 +164,9 @@ const BuyButton = ({
     }
     
     return (<div className="freaPay"><div className="info">
-    {status === ButtonState.CALCULATING_PRICE && <span>calculating price</span>}
+    {status === ButtonState.CALCULATING_PRICE && (<span className="waiting"><Player autoplay loop src="loading-white.json" style={{ width: "2em", height:"2em"}}></Player>calculating price</span>)}
     {status === ButtonState.READY_TO_PAY && <span>{amountUsd} USD = {amountUsd * fiat2Token} {tokenDetails.symbol}</span>}
-    {status === ButtonState.AWAITING_CONFIRMATION && <span>waiting for confirmation of transaction hash {opHash}</span>}
+    {status === ButtonState.AWAITING_CONFIRMATION && <span className="waiting">waiting for confirmation of transaction hash {opHash}</span>}
     </div>
     {status === ButtonState.READY_TO_PAY && 
         <button 

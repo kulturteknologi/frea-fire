@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ledgerhq/hw-transport-u2f": "^5.36.0-deprecated",
+    "@lottiefiles/react-lottie-player": "^3.4.1",
     "@taquito/beacon-wallet": "^10.2.1",
     "@taquito/ledger-signer": "^10.2.1",
     "@taquito/taquito": "^10.2.1",
