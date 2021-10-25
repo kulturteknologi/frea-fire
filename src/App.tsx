@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { TezosToolkit } from "@taquito/taquito";
 
 
 import "./App.css";
 import ConnectButton from "./components/ConnectWallet";
 import DisconnectButton from "./components/DisconnectWallet";
-import qrcode from "qrcode-generator";
-import UpdateContract from "./components/UpdateContract";
-import Transfers from "./components/Transfers";
+//import qrcode from "qrcode-generator";
+//import UpdateContract from "./components/UpdateContract";
+//import Transfers from "./components/Transfers";
 import BuyButton from "./components/BuyButton";
 
-enum BeaconConnection {
-  NONE = "",
-  LISTENING = "Listening to P2P channel",
-  CONNECTED = "Channel connected",
-  PERMISSION_REQUEST_SENT = "Permission request sent, waiting for response",
-  PERMISSION_REQUEST_SUCCESS = "Wallet is connected"
-}
+// enum BeaconConnection {
+//   NONE = "",
+//   LISTENING = "Listening to P2P channel",
+//   CONNECTED = "Channel connected",
+//   PERMISSION_REQUEST_SENT = "Permission request sent, waiting for response",
+//   PERMISSION_REQUEST_SUCCESS = "Wallet is connected"
+// }
 
 type AppProps = {
     swapContract: string,
@@ -38,23 +38,23 @@ const App = ({
     redirectSuccess
 }: AppProps) => {
   
-  const [contract, setContract] = useState<any>(undefined);
+  const [, setContract] = useState<any>(undefined);
   const [publicToken, setPublicToken] = useState<string | null>("");
   const [wallet, setWallet] = useState<any>(null);
   const [userAddress, setUserAddress] = useState<string>("");
   const [userBalance, setUserBalance] = useState<number>(0);
-  const [storage, setStorage] = useState<number>(0);
-  const [copiedPublicToken, setCopiedPublicToken] = useState<boolean>(false);
-  const [beaconConnection, setBeaconConnection] = useState<boolean>(false);
+  const [, setStorage] = useState<number>(0);
+//  const [copiedPublicToken, setCopiedPublicToken] = useState<boolean>(false);
+  const [, setBeaconConnection] = useState<boolean>(false);
 
   
-  const generateQrCode = (): { __html: string } => {
-    const qr = qrcode(0, "L");
-    qr.addData(publicToken || "");
-    qr.make();
-
-    return { __html: qr.createImgTag(4) };
-  };
+//   const generateQrCode = (): { __html: string } => {
+//     const qr = qrcode(0, "L");
+//     qr.addData(publicToken || "");
+//     qr.make();
+// 
+//     return { __html: qr.createImgTag(4) };
+//   };
   
 
 

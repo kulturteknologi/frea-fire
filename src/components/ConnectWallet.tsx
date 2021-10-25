@@ -109,7 +109,7 @@ const ConnectButton = ({
         setBeaconConnection(true);
       }
     })();
-  }, []);
+  });
 
   return (
     <div className="buttons">

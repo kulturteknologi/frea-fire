@@ -1,7 +1,7 @@
-import React, { Dispatch, SetStateAction, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { TezosToolkit } from "@taquito/taquito";
-import { BeaconWallet } from "@taquito/beacon-wallet";
+//import { BeaconWallet } from "@taquito/beacon-wallet";
 import { bytes2Char } from '@taquito/utils';
 
 
@@ -88,12 +88,12 @@ const BuyButton = ({
         (async () => {
             await initTokenContract(FA2address);
         })();
-    },[])
+    })
     
     useEffect(() => {
         getTezosPrice();
         getPoolSizes();
-    }, [tokenDetails])
+    })
     
     // calculate Price in Token
     useEffect(() => {
@@ -108,7 +108,7 @@ const BuyButton = ({
             
         }
         
-    })
+    },[tezUsd.usd, tezPool, tokenPool, status])
     
     const getTezosPrice = async (): Promise<void> => {
         // https://www.coingecko.com/en/api#explore-api
@@ -122,7 +122,7 @@ const BuyButton = ({
         fetch("https://api.tzkt.io/v1/contracts/"+tokenDetails.swapContract+"/storage")
             .then(res => res.json())
             .then(item => {
-                if (item.code == 400) { } else {
+                if (item.code === 400) { } else {
                 setTezPool( parseFloat(item.storage.tez_pool) / tezMultiplyer);
                 setTokenPool( parseFloat(item.storage.token_pool) / tokenMultiplyer);
                 //console.log(tokenPool + " -- " + parseFloat(item.storage.token_pool)) 
@@ -158,6 +158,7 @@ const BuyButton = ({
                  setStatus(ButtonState.AWAITING_CONFIRMATION);
                  op.confirmation(); 
              });
+        console.log(op)
     }
     
     return (<div className="freaPay"><div className="info">

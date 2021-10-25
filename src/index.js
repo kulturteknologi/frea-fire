@@ -1,22 +1,22 @@
-import React, {useState} from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.tsx";
-import * as serviceWorker from "./serviceWorker";
+//import * as serviceWorker from "./serviceWorker";
 
 import { TezosToolkit } from "@taquito/taquito";
-import { BeaconWallet } from "@taquito/beacon-wallet";
-import {
-  NetworkType,
-  BeaconEvent,
-  defaultEventCallbacks
-} from "@airgap/beacon-sdk";
+//import { BeaconWallet } from "@taquito/beacon-wallet";
+// import {
+// //  NetworkType,
+//   BeaconEvent
+// //  defaultEventCallbacks
+// } from "@airgap/beacon-sdk";
 
 
 const appNodes = document.getElementsByClassName("pay-button");
 
-function setPublicToken(pubKey) {
-    console.log("successfully connected to "+pubKey);
-}
+// function setPublicToken(pubKey) {
+//     console.log("successfully connected to "+pubKey);
+// }
 
 if (appNodes) {
 //     const [Tezos, setTezos] = useState<TezosToolkit>(

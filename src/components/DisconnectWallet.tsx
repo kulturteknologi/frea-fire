@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { BeaconWallet } from "@taquito/beacon-wallet";
-import { TezosToolkit } from "@taquito/taquito";
+//import { TezosToolkit } from "@taquito/taquito";
 
 interface ButtonProps {
   wallet: BeaconWallet | null;
